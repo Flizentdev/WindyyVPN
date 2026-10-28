@@ -1,0 +1,38 @@
+name: Mirror AetrisVPN Configs
+
+on:
+  schedule:
+    # Запуск каждые 30 минут (из-за лимитов GitHub Actions запуск может задерживаться)
+    - cron: '*/30 * * * *'
+  workflow_dispatch:     # Кнопка для ручного запуска
+
+# Даем права боту на запись изменений в репозиторий
+permissions:
+  contents: write
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download configs from Google Drive
+        run: |
+          curl -L "https://drive.usercontent.google.com/download?id=1Hv1NOdfiu004R-V0YEy3X1KgwhNFAsCd&export=download&confirm=t" -o WindyyVPN.txt
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add WindyyVPN.txt
+          
+          # Проверяем, изменился ли файл, чтобы не плодить пустые коммиты
+          if git diff --staged --quiet; then
+            echo "Изменений в конфигах нет. Пропускаем коммит."
+          else
+            git commit -m "Принудительное автообновление подписки"
+            git pull --rebase origin main
+            git push origin main
+          fi
+                                                                                                                                                                                                                      
