@@ -1,6 +1,6 @@
-#profile-title: WindyyVPN
+#profile-title: AetrisVPN
 #profile-update-interval: 1
-#announce: ⚡️ WimnyyVPN | версия 4293 | 550 конфигов (✅550 🟡0 ⚪0) | обновлено: 10/28/2026 08:53 PM | след: 10/28/2026 09:53 PM ⚡️
+#announce: ⚡️ AetrisVPN | версия 4293 | 550 конфигов (✅550 🟡0 ⚪0) | обновлено: 10/28/2026 08:53 PM | след: 10/28/2026 09:53 PM ⚡️
 #support-url: https://t.me/AetrisVPN
 #profile-web-page-url: https://pay.cloudtips.ru/p/6f2a7544
 #hide-settings: 1
